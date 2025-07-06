@@ -3,7 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poetry Prompt Builder</title>
+    <title>Poetry Prompt Builder - Create Better Poems with AI</title>
+    <meta name="description" content="Learn poetic forms and create personalized prompts for AI poetry writing. Transform your ideas into beautiful poems with guidance on sonnets, villanelles, haiku, and more.">
+    <meta name="keywords" content="poetry, AI writing, poetic forms, sonnet, villanelle, haiku, creative writing, poem generator">
+    <meta name="author" content="Poetry Prompt Builder">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/poetry-prompt-builder/">
+    <meta property="og:title" content="Poetry Prompt Builder - Create Better Poems with AI">
+    <meta property="og:description" content="Learn poetic forms and create personalized prompts for AI poetry writing. Transform your ideas into beautiful poems.">
+    <meta property="og:image" content="https://yourusername.github.io/poetry-prompt-builder/preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourusername.github.io/poetry-prompt-builder/">
+    <meta property="twitter:title" content="Poetry Prompt Builder - Create Better Poems with AI">
+    <meta property="twitter:description" content="Learn poetic forms and create personalized prompts for AI poetry writing. Transform your ideas into beautiful poems.">
+    <meta property="twitter:image" content="https://yourusername.github.io/poetry-prompt-builder/preview.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✍️</text></svg>">
     <style>
         :root {
             --primary-bg: #2d1b69;
