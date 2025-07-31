@@ -3,37 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poetry Prompt Builder - Create Better Poems with AI</title>
-    <meta name="description" content="Learn poetic forms and create personalized prompts for AI poetry writing. Transform your ideas into beautiful poems with guidance on sonnets, villanelles, haiku, and more.">
-    <meta name="keywords" content="poetry, AI writing, poetic forms, sonnet, villanelle, haiku, creative writing, poem generator">
-    <meta name="author" content="Poetry Prompt Builder">
+    <title>Poetry Prompt Builder</title>
+    <meta name="description" content="Create personalized AI writing prompts for poetry with our 4-step guided process.">
+    <meta property="og:title" content="Poetry Prompt Builder">
+    <meta property="og:description" content="Create personalized AI writing prompts for poetry with our 4-step guided process.">
+    <meta property="og:url" content="https://abigailblue.github.io/poetry-prompt-builder/">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://abigailblue.github.io/poetry-prompt-builder/">
-<meta property="og:title" content="Poetry Prompt Builder - Create Better Poems with AI">
-<meta property="og:description" content="Learn poetic forms and create personalized prompts for AI poetry writing. Transform your ideas into beautiful poems.">
-<meta property="og:image" content="https://abigailblue.github.io/poetry-prompt-builder/preview.png">
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://abigailblue.github.io/poetry-prompt-builder/">
-<meta property="twitter:title" content="Poetry Prompt Builder - Create Better Poems with AI">
-<meta property="twitter:description" content="Learn poetic forms and create personalized prompts for AI poetry writing. Transform your ideas into beautiful poems.">
-<meta property="twitter:image" content="https://abigailblue.github.io/poetry-prompt-builder/preview.png">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✍️</text></svg>">
     <style>
         :root {
-            --primary-bg: #2d1b69;
-            --secondary-bg: #7209b7;
-            --tertiary-bg: #a663cc;
-            --text-color: #f8f9fa;
-            --heading-color: #ffd23f;
-            --accent-color: #ff6b6b;
-            --success-color: #51cf66;
-            --card-bg: rgba(255,255,255,0.1);
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --card-background: #ffffff;
+            --text-color: #2c3e50;
+            --text-muted: #7f8c8d;
+            --border-color: #bdc3c7;
+            --border-radius: 8px;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --font-family: Georgia, 'Times New Roman', serif;
+            --font-size-base: 16px;
+            --font-size-large: 1.25rem;
+            --font-size-xl: 1.5rem;
+            --font-size-xxl: 2rem;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
         }
 
         * {
@@ -43,699 +48,907 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 50%, var(--tertiary-bg) 100%);
-            min-height: 100vh;
-            color: var(--text-color);
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: var(--spacing-lg);
         }
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 30px 0;
-            background: var(--card-bg);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            margin-bottom: var(--spacing-xxl);
         }
 
-        .poetry-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background: linear-gradient(45deg, var(--accent-color), var(--heading-color));
-            border-radius: 50%;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5em;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        .header h1 {
+            font-size: var(--font-size-xxl);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
         }
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: var(--heading-color);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .subtitle {
-            font-size: 1.2em;
-            color: #d5dbdb;
+        .header .subtitle {
+            font-size: var(--font-size-large);
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-lg);
             font-style: italic;
         }
 
-.introduction {
-    margin-top: 20px;
-    font-size: 1em;
-    line-height: 1.6;
-    color: #e8eaed;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-}
-        .step-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-        }
-
-        .step-number {
-            background: var(--heading-color);
-            color: var(--primary-bg);
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
-            font-size: 1.2em;
-        }
-
-        .step-title {
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            color: var(--heading-color);
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .topic-card {
-            background: rgba(255,255,255,0.05);
-            border: 2px solid transparent;
-            border-radius: 10px;
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            min-height: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .topic-card:hover {
-            background: rgba(255,255,255,0.15);
-            border-color: var(--heading-color);
-            transform: translateY(-2px);
-        }
-
-        .topic-card.selected {
-            background: rgba(255, 210, 63, 0.2);
-            border-color: var(--heading-color);
-            color: var(--heading-color);
-        }
-
-        .topic-emoji {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .topic-name {
-            font-size: 1.1em;
-            font-weight: bold;
-        }
-
-        .form-recommendations {
-            margin-top: 20px;
-        }
-
-        .form-card {
-            background: rgba(255,255,255,0.05);
-            border: 2px solid transparent;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .form-card:hover {
-            background: rgba(255,255,255,0.15);
-            border-color: var(--accent-color);
-        }
-
-        .form-card.selected {
-            background: rgba(255, 107, 107, 0.2);
-            border-color: var(--accent-color);
-        }
-
-        .form-name {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .form-description {
-            margin-bottom: 10px;
-        }
-
-        .form-structure {
-            font-size: 0.9em;
-            color: var(--heading-color);
-            font-style: italic;
-        }
-
-        .ideas-input {
-            width: 100%;
-            min-height: 150px;
-            background: rgba(255,255,255,0.05);
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 10px;
-            padding: 18px;
-            font-size: 1.1em;
+        .intro-text {
+            max-width: 600px;
+            margin: 0 auto var(--spacing-xl);
             color: var(--text-color);
-            font-family: 'Georgia', serif;
-            resize: vertical;
-        }
-
-        .ideas-input::placeholder {
-            color: rgba(255,255,255,0.5);
-        }
-
-        .ideas-input:focus {
-            outline: none;
-            border-color: var(--heading-color);
-            background: rgba(255,255,255,0.1);
-        }
-
-        .ideas-counter {
-            text-align: right;
-            margin-top: 10px;
-            color: var(--heading-color);
-            font-size: 0.9em;
-        }
-
-        .btn {
-            background: linear-gradient(45deg, var(--accent-color), var(--heading-color));
-            color: white;
-            border: none;
-            padding: 18px 36px;
-            font-size: 1.2em;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 20px auto;
-            display: block;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            min-height: 52px;
-            font-family: inherit;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-        }
-
-        .btn:disabled {
-            background: #666;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .prompt-output {
-            background: rgba(255,255,255,0.05);
-            border: 2px solid var(--success-color);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            font-family: 'Courier New', monospace;
-            white-space: pre-wrap;
-            position: relative;
-        }
-
-        .copy-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--success-color);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .inspiration-hints {
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-            font-size: 0.9em;
-        }
-
-        .inspiration-hints strong {
-            color: var(--heading-color);
+            text-align: center;
+            line-height: 1.7;
         }
 
         .progress-indicator {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 30px;
-            gap: 15px;
+            margin-bottom: var(--spacing-xl);
+            gap: var(--spacing-md);
         }
 
         .progress-step {
-            width: 12px;
-            height: 12px;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.3);
+            background-color: var(--border-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .step-number.active {
+            background-color: var(--accent-color);
+        }
+
+        .step-number.completed {
+            background-color: var(--success-color);
+        }
+
+        .step-text {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .progress-arrow {
+            color: var(--border-color);
+            font-size: 18px;
+        }
+
+        .step-section {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .step-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: var(--font-size-xl);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-description {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .card {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow);
+            cursor: pointer;
             transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
-        .progress-step.active {
-            background: var(--heading-color);
-            transform: scale(1.2);
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .progress-step.completed {
-            background: var(--success-color);
+        .card.selected {
+            border-color: var(--accent-color);
+            background-color: #f8fbff;
         }
 
-        @media (max-width: 600px) {
+        .card-title {
+            font-size: var(--font-size-large);
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-description {
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.5;
+        }
+
+        .card-structure {
+            font-size: 14px;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-why {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .input-section {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-label {
+            display: block;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .form-textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: var(--spacing-md);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.5;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .character-counter {
+            text-align: right;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: var(--spacing-xs);
+        }
+
+        .character-counter.error {
+            color: var(--danger-color);
+        }
+
+        .button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--border-radius);
+            font-size: var(--font-size-base);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .button:hover:not(:disabled) {
+            background-color: #2980b9;
+            transform: translateY(-1px);
+        }
+
+        .button:disabled {
+            background-color: var(--border-color);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .button-secondary {
+            background-color: var(--secondary-color);
+        }
+
+        .button-secondary:hover:not(:disabled) {
+            background-color: #2c3e50;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+
+        .result-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .generated-prompt {
+            background-color: var(--card-background);
+            border: 2px solid var(--success-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow);
+        }
+
+        .prompt-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            gap: var(--spacing-md);
+        }
+
+        .prompt-title {
+            font-size: var(--font-size-large);
+            font-weight: bold;
+            color: var(--success-color);
+        }
+
+        .copy-button {
+            background-color: var(--success-color);
+            font-size: 14px;
+            padding: var(--spacing-sm) var(--spacing-md);
+        }
+
+        .copy-button:hover:not(:disabled) {
+            background-color: #229954;
+        }
+
+        .prompt-text {
+            color: var(--text-color);
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .error-message {
+            background-color: #ffe6e6;
+            color: var(--danger-color);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--danger-color);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .success-message {
+            background-color: #e8f5e8;
+            color: var(--success-color);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--success-color);
+            margin-top: var(--spacing-sm);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
             .container {
-                padding: 10px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .step-card {
-                padding: 20px;
+                padding: var(--spacing-md);
             }
 
-            .topic-grid {
-                grid-template-columns: 1fr 1fr;
+            .header h1 {
+                font-size: var(--font-size-xl);
+            }
+
+            .progress-indicator {
+                flex-wrap: wrap;
+                gap: var(--spacing-sm);
+            }
+
+            .step-text {
+                display: none;
+            }
+
+            .progress-arrow {
+                display: none;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .prompt-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: var(--spacing-sm);
+            }
+
+            .card {
+                padding: var(--spacing-md);
+            }
+
+            .form-textarea {
+                min-height: 120px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-    <div class="poetry-icon">✍️</div>
-    <h1>Poetry Prompt Builder</h1>
-    <p class="subtitle">Create better poems with AI by understanding form and purpose</p>
-    <div class="introduction">
-        <p>Poetry is the language of the heart speaking through the mind's eye, where form follows function to create meaning. Just as architects design buildings where structure serves purpose, poets choose forms that enhance their message. Sonnets, haikus, and free verse are just a few examples—there are dozens of poetic forms to choose from, each serving different expressive needs. This app will guide you through a few simple questions about what you want to write, then recommend the perfect form and help you craft a personalized prompt for AI poetry writing.</p>
-    </div>
-</div>
+        <header class="header">
+            <h1>Poetry Prompt Builder</h1>
+            <p class="subtitle">Craft Your Creative Writing Journey</p>
+            <div class="intro-text">
+                <p>In poetry, form follows function—the structure serves the emotion, the rhythm carries the meaning. This tool helps you discover the perfect poetic form for your ideas and creates a personalized AI writing prompt to guide your creative process.</p>
+            </div>
+        </header>
 
         <div class="progress-indicator">
-            <div class="progress-step active" id="step1-indicator"></div>
-            <div class="progress-step" id="step2-indicator"></div>
-            <div class="progress-step" id="step3-indicator"></div>
-            <div class="progress-step" id="step4-indicator"></div>
-        </div>
-
-        <!-- Step 1: Topic Selection -->
-        <div id="step1" class="step-card">
-            <div class="step-title">
-                <span class="step-number">1</span>
-                What would you like to write about?
+            <div class="progress-step">
+                <div class="step-number active" data-step="1">1</div>
+                <span class="step-text">Topic</span>
             </div>
-            <div class="topic-grid">
-                <div class="topic-card" data-topic="love">
-                    <div class="topic-emoji">💕</div>
-                    <div class="topic-name">Love</div>
-                </div>
-                <div class="topic-card" data-topic="loss">
-                    <div class="topic-emoji">🕊️</div>
-                    <div class="topic-name">Loss</div>
-                </div>
-                <div class="topic-card" data-topic="nature">
-                    <div class="topic-emoji">🌿</div>
-                    <div class="topic-name">Nature</div>
-                </div>
-                <div class="topic-card" data-topic="family">
-                    <div class="topic-emoji">🏠</div>
-                    <div class="topic-name">Family</div>
-                </div>
+            <div class="progress-arrow">→</div>
+            <div class="progress-step">
+                <div class="step-number" data-step="2">2</div>
+                <span class="step-text">Form</span>
+            </div>
+            <div class="progress-arrow">→</div>
+            <div class="progress-step">
+                <div class="step-number" data-step="3">3</div>
+                <span class="step-text">Ideas</span>
+            </div>
+            <div class="progress-arrow">→</div>
+            <div class="progress-step">
+                <div class="step-number" data-step="4">4</div>
+                <span class="step-text">Prompt</span>
             </div>
         </div>
 
-        <!-- Step 2: Form Selection -->
-        <div id="step2" class="step-card hidden">
-            <div class="step-title">
-                <span class="step-number">2</span>
-                Choose a poetic form
-            </div>
-            <div id="form-recommendations"></div>
-        </div>
+        <main>
+            <!-- Step 1: Topic Selection -->
+            <section id="step-1" class="step-section active">
+                <h2 class="section-title">Choose Your Topic</h2>
+                <p class="section-description">Select the theme that resonates with your creative vision. Each topic will guide us to the most suitable poetic forms.</p>
+                
+                <div class="cards-grid">
+                    <div class="card topic-card" data-topic="love">
+                        <h3 class="card-title">Love</h3>
+                        <p class="card-description">Explore the depths of romantic connection, passion, heartbreak, and the complex emotions that bind us to others.</p>
+                    </div>
+                    <div class="card topic-card" data-topic="loss">
+                        <h3 class="card-title">Loss</h3>
+                        <p class="card-description">Navigate grief, mourning, absence, and the profound changes that come with losing someone or something dear.</p>
+                    </div>
+                    <div class="card topic-card" data-topic="nature">
+                        <h3 class="card-title">Nature</h3>
+                        <p class="card-description">Connect with the natural world, seasons, landscapes, and the eternal cycles that mirror our inner lives.</p>
+                    </div>
+                    <div class="card topic-card" data-topic="family">
+                        <h3 class="card-title">Family</h3>
+                        <p class="card-description">Reflect on relationships, heritage, childhood memories, and the bonds that shape our identity.</p>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Step 3: Ideas Input -->
-        <div id="step3" class="step-card hidden">
-            <div class="step-title">
-                <span class="step-number">3</span>
-                Share your ideas and observations
-            </div>
-            <p style="margin-bottom: 20px;">List up to 10 specific details, memories, or ideas you want to include in your poem. The more specific, the better!</p>
-            <textarea 
-                id="ideas-input" 
-                class="ideas-input" 
-                placeholder="Example: the smell of coffee in the morning, how light filters through kitchen curtains, the sound of pages turning, her laugh when she told old stories..."
-                maxlength="1000"
-            ></textarea>
-            <div class="ideas-counter">
-                <span id="ideas-count">0</span>/1000 characters
-            </div>
-            <div class="inspiration-hints">
-                <strong>💡 Think about:</strong> Specific sights, sounds, smells, textures, emotions, colors, actions, or moments that matter to you
-            </div>
-            <button class="btn" onclick="generatePrompt()" disabled id="generate-btn">
-                ✨ Generate My Writing Prompt
-            </button>
-        </div>
+            <!-- Step 2: Form Recommendations -->
+            <section id="step-2" class="step-section">
+                <h2 class="section-title">Recommended Forms</h2>
+                <p class="section-description">Based on your chosen topic, here are three poetic forms that will best serve your creative expression.</p>
+                
+                <div id="form-recommendations" class="cards-grid">
+                    <!-- Forms will be populated by JavaScript -->
+                </div>
+            </section>
 
-        <!-- Step 4: Generated Prompt -->
-        <div id="step4" class="step-card hidden">
-            <div class="step-title">
-                <span class="step-number">4</span>
-                Your personalized writing prompt
-            </div>
-            <p style="margin-bottom: 20px;">Copy this prompt and use it with ChatGPT, Claude, or your favorite AI writing assistant:</p>
-            <div class="prompt-output" id="prompt-output">
-                <button class="copy-btn" onclick="copyPrompt()">📋 Copy</button>
-                <div id="generated-prompt"></div>
-            </div>
-            <button class="btn btn-secondary" onclick="startOver()">
-                🔄 Create Another Poem
-            </button>
-        </div>
+            <!-- Step 3: Ideas Input -->
+            <section id="step-3" class="step-section">
+                <h2 class="section-title">Share Your Ideas</h2>
+                <p class="section-description">Tell us about your thoughts, observations, or experiences related to your chosen topic. The more specific you are, the better your personalized prompt will be.</p>
+                
+                <div class="input-section">
+                    <div class="form-group">
+                        <label for="user-ideas" class="form-label">Your Ideas and Observations:</label>
+                        <textarea 
+                            id="user-ideas" 
+                            class="form-textarea" 
+                            placeholder="Share your thoughts, memories, images, or feelings about your chosen topic. What specific moments, sensations, or emotions do you want to explore in your poem?"
+                            maxlength="1000"
+                        ></textarea>
+                        <div id="character-counter" class="character-counter">0/50 characters minimum</div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button id="generate-button" class="button" disabled>Generate My Prompt</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 4: Generated Prompt -->
+            <section id="step-4" class="step-section">
+                <h2 class="section-title">Your Personalized Prompt</h2>
+                <p class="section-description">Here's your custom AI writing prompt, ready to copy and use with your favorite AI writing assistant.</p>
+                
+                <div class="result-section">
+                    <div id="generated-prompt" class="generated-prompt">
+                        <div class="prompt-header">
+                            <h3 class="prompt-title">Your Writing Prompt</h3>
+                            <button id="copy-button" class="button copy-button">Copy to Clipboard</button>
+                        </div>
+                        <div id="prompt-text" class="prompt-text">
+                            <!-- Generated prompt will appear here -->
+                        </div>
+                        <div id="copy-success" class="success-message" style="display: none;">
+                            Prompt copied to clipboard! 📝
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button id="start-over-button" class="button button-secondary">Start Over</button>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
     <script>
-        // Poetry forms database
+        // Global state management
+        let selectedTopic = null;
+        let selectedForm = null;
+        let currentStep = 1;
+
+        // Poetry forms data structure
         const poetryForms = {
             love: [
                 {
                     name: "Sonnet",
-                    description: "Perfect for deep romantic feelings and complex emotions about love",
-                    structure: "14 lines with specific rhyme scheme, ideal for building to an emotional climax",
-                    why: "The sonnet's structure mirrors the complexity of love - building tension and resolving it beautifully"
+                    description: "Perfect for deep romantic feelings with its traditional structure and emphasis on emotional resolution.",
+                    structure: "14 lines with specific rhyme scheme (ABAB CDCD EFEF GG for Shakespearean, or ABBAABBA CDECDE for Petrarchan)",
+                    why: "The sonnet's structure mirrors the complexity of love—building tension through the quatrains and finding resolution in the final couplet or tercets."
                 },
                 {
                     name: "Free Verse",
-                    description: "Let your love flow naturally without formal constraints",
-                    structure: "No set pattern - follow the rhythm of your heart and emotions",
-                    why: "Love doesn't follow rules, so why should your poem? Express exactly what you feel"
+                    description: "Allows natural expression of emotion without formal constraints, perfect for modern love poetry.",
+                    structure: "No fixed meter, rhyme, or line count—follow the natural rhythms of speech and emotion",
+                    why: "Love is rarely predictable or structured, and free verse captures the spontaneous, flowing nature of romantic feeling."
                 },
                 {
-                    name: "Villanelle",
-                    description: "For obsessive, all-consuming love that you can't stop thinking about",
-                    structure: "19 lines with repeating refrains that echo like persistent thoughts",
-                    why: "The repetition captures how love thoughts circle back and consume our minds"
+                    name: "Ghazal",
+                    description: "An ancient form expressing longing and loss in love, with repeated refrains that echo obsessive thoughts.",
+                    structure: "5-15 couplets, each ending with the same word/phrase (radif) and preceding rhyme (qafiya)",
+                    why: "The repetitive structure mirrors how lovers return obsessively to the same thoughts and feelings about their beloved."
                 }
             ],
             loss: [
                 {
-                    name: "Villanelle",
-                    description: "Perfect for grief that comes in waves, thoughts that won't stop returning",
-                    structure: "19 lines with refrains that repeat like persistent memories",
-                    why: "Grief isn't linear - it circles back. The villanelle's structure mirrors this experience"
-                },
-                {
                     name: "Elegy",
-                    description: "The classic form for mourning and remembrance",
-                    structure: "Free-flowing verses that honor what was lost while expressing sorrow",
-                    why: "Elegies have comforted mourners for centuries - a time-tested way to process loss"
+                    description: "The traditional form for mourning and remembrance, balancing sorrow with celebration of what was lost.",
+                    structure: "Often written in elegiac couplets or quatrains, with a reflective, mournful tone throughout",
+                    why: "Elegies provide a structured way to process grief, moving from lamentation through reflection to acceptance."
                 },
                 {
-                    name: "Free Verse",
-                    description: "When grief is too raw for formal structure",
-                    structure: "No rules - let your emotions guide the rhythm and line breaks",
-                    why: "Sometimes grief breaks all the rules. Free verse gives you space to be messy and real"
+                    name: "Blank Verse",
+                    description: "Unrhymed iambic pentameter that mirrors natural speech while maintaining dignified rhythm.",
+                    structure: "10 syllables per line in iambic pattern (unstressed/stressed), no rhyme scheme required",
+                    why: "The formal meter provides stability during emotional turbulence, while the lack of rhyme allows for natural expression of complex grief."
+                },
+                {
+                    name: "Tanka",
+                    description: "A brief Japanese form that captures a single moment of loss or memory with delicate precision.",
+                    structure: "5 lines with syllable pattern 5-7-5-7-7, often featuring a pivot or shift in perspective",
+                    why: "Loss often crystallizes into vivid moments of memory; tanka's brevity forces focus on the most essential emotional truths."
                 }
             ],
             nature: [
                 {
                     name: "Haiku",
-                    description: "Capture a single moment in nature with stunning clarity",
-                    structure: "3 lines (5-7-5 syllables) focusing on one clear image",
-                    why: "Nature's beauty is often found in small, perfect moments. Haiku distills these to their essence"
+                    description: "Captures a single moment in nature with simplicity and depth, emphasizing seasonal awareness.",
+                    structure: "3 lines with syllable pattern 5-7-5, traditionally including a seasonal reference (kigo)",
+                    why: "Nature's beauty is often found in fleeting moments; haiku's brevity mirrors the quick glimpse of a bird in flight or dewdrop on a leaf."
                 },
                 {
-                    name: "Free Verse",
-                    description: "Let the natural world flow through your words organically",
-                    structure: "Follow nature's own rhythms - sometimes gentle, sometimes wild",
-                    why: "Nature doesn't follow human patterns, so free verse lets you capture its authentic flow"
+                    name: "Pastoral",
+                    description: "Celebrates rural or natural settings, often contrasting the simplicity of nature with urban complexity.",
+                    structure: "Variable length, often in rhymed stanzas, focusing on natural imagery and rural themes",
+                    why: "The pastoral tradition recognizes humanity's deep connection to the natural world and our need for that peaceful refuge."
                 },
                 {
-                    name: "Sonnet",
-                    description: "Explore your deep connection to the natural world",
-                    structure: "14 lines that build from observation to profound insight about nature",
-                    why: "The sonnet's progression mirrors how we notice nature, then understand its deeper meaning"
+                    name: "Pantoum",
+                    description: "Interlocking repetition that echoes the cyclical patterns found throughout nature.",
+                    structure: "Interlocking quatrains where lines 2 and 4 of each stanza become lines 1 and 3 of the next",
+                    why: "Nature is fundamentally cyclical—seasons, tides, life and death. The pantoum's repetitive structure mirrors these eternal patterns."
                 }
             ],
             family: [
                 {
-                    name: "Free Verse",
-                    description: "Capture the unique rhythms and voices of your family",
-                    structure: "Let family stories unfold naturally, like conversations around the dinner table",
-                    why: "Every family has its own rhythm. Free verse lets you capture your family's authentic voice"
-                },
-                {
                     name: "Narrative Poem",
-                    description: "Tell the story of a family moment or tradition",
-                    structure: "Verse that follows a story arc, bringing family memories to life",
-                    why: "Families are built on stories. Narrative poems help preserve and honor those stories"
+                    description: "Tells the story of family moments, relationships, and generational connections through verse.",
+                    structure: "Variable length and form, focused on storytelling with clear beginning, middle, and end",
+                    why: "Family relationships are built on shared stories and histories; narrative poetry lets you explore these connections through time."
                 },
                 {
                     name: "Villanelle",
-                    description: "For family traditions, repeated phrases, or generational patterns",
-                    structure: "19 lines with refrains that echo like family sayings or inherited traits",
-                    why: "Families repeat patterns across generations. The villanelle captures these echoing connections"
+                    description: "Repetitive structure that echoes how family phrases, memories, and patterns repeat through generations.",
+                    structure: "19 lines: 5 tercets and 1 quatrain, with two refrains and two rhymes (ABA ABA ABA ABA ABA ABAA)",
+                    why: "Families pass down sayings, habits, and traits; the villanelle's refrains mirror how certain phrases or memories echo through family life."
+                },
+                {
+                    name: "Prose Poem",
+                    description: "Combines the intimacy of prose with poetic language, perfect for capturing family conversations and memories.",
+                    structure: "Written in paragraph form but with heightened language, imagery, and emotional intensity",
+                    why: "Family memories often come to us not as formal verses but as flowing recollections; prose poetry captures this natural reminiscence."
                 }
             ]
         };
 
-        let selectedTopic = null;
-        let selectedForm = null;
-        let userIdeas = "";
+        // DOM Elements
+        const stepSections = document.querySelectorAll('.step-section');
+        const progressSteps = document.querySelectorAll('.step-number');
+        const topicCards = document.querySelectorAll('.topic-card');
+        const formRecommendations = document.getElementById('form-recommendations');
+        const userIdeasTextarea = document.getElementById('user-ideas');
+        const characterCounter = document.getElementById('character-counter');
+        const generateButton = document.getElementById('generate-button');
+        const promptText = document.getElementById('prompt-text');
+        const copyButton = document.getElementById('copy-button');
+        const copySuccess = document.getElementById('copy-success');
+        const startOverButton = document.getElementById('start-over-button');
 
-        // Topic selection
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.topic-card')) {
-                const topicCard = e.target.closest('.topic-card');
-                const topic = topicCard.dataset.topic;
-                
-                // Clear previous selections
-                document.querySelectorAll('.topic-card').forEach(card => {
-                    card.classList.remove('selected');
-                });
-                
-                // Select current topic
-                topicCard.classList.add('selected');
-                selectedTopic = topic;
-                
-                // Show form recommendations
-                showFormRecommendations(topic);
-                
-                // Update progress
-                updateProgress(2);
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', initializeApp);
+        topicCards.forEach(card => card.addEventListener('click', handleTopicSelection));
+        userIdeasTextarea.addEventListener('input', handleIdeasInput);
+        generateButton.addEventListener('click', generatePrompt);
+        copyButton.addEventListener('click', copyToClipboard);
+        startOverButton.addEventListener('click', startOver);
+
+        // Initialize the application
+        function initializeApp() {
+            try {
+                updateProgress(1);
+                console.log('Poetry Prompt Builder initialized successfully');
+            } catch (error) {
+                console.error('Error initializing app:', error);
+                showError('Failed to initialize the application. Please refresh the page.');
             }
-            
-            if (e.target.closest('.form-card')) {
-                const formCard = e.target.closest('.form-card');
-                const formIndex = formCard.dataset.formIndex;
-                
-                // Clear previous selections
-                document.querySelectorAll('.form-card').forEach(card => {
-                    card.classList.remove('selected');
-                });
-                
-                // Select current form
-                formCard.classList.add('selected');
-                selectedForm = poetryForms[selectedTopic][formIndex];
-                
-                // Show ideas input
-                showIdeasInput();
-                
-                // Update progress
-                updateProgress(3);
-            }
-        });
-
-        function showFormRecommendations(topic) {
-            const step2 = document.getElementById('step2');
-            const recommendations = document.getElementById('form-recommendations');
-            
-            const forms = poetryForms[topic];
-            recommendations.innerHTML = forms.map((form, index) => `
-                <div class="form-card" data-form-index="${index}">
-                    <div class="form-name">${form.name}</div>
-                    <div class="form-description">${form.description}</div>
-                    <div class="form-structure">${form.structure}</div>
-                    <div style="margin-top: 10px; font-style: italic; color: var(--heading-color);">
-                        💡 ${form.why}
-                    </div>
-                </div>
-            `).join('');
-            
-            step2.classList.remove('hidden');
-            step2.scrollIntoView({ behavior: 'smooth' });
         }
 
-        function showIdeasInput() {
-            const step3 = document.getElementById('step3');
-            step3.classList.remove('hidden');
-            step3.scrollIntoView({ behavior: 'smooth' });
-            
-            document.getElementById('ideas-input').focus();
-        }
-
-        // Ideas input handling
-        document.getElementById('ideas-input').addEventListener('input', function(e) {
-            const text = e.target.value;
-            const count = text.length;
-            
-            document.getElementById('ideas-count').textContent = count;
-            userIdeas = text;
-            
-            const generateBtn = document.getElementById('generate-btn');
-            generateBtn.disabled = count < 50; // Require at least 50 characters
-            
-            if (count >= 50) {
-                generateBtn.style.background = 'linear-gradient(45deg, var(--accent-color), var(--heading-color))';
-            } else {
-                generateBtn.style.background = '#666';
-            }
-        });
-
-        function generatePrompt() {
-            const prompt = createPersonalizedPrompt();
-            
-            document.getElementById('generated-prompt').textContent = prompt;
-            document.getElementById('step4').classList.remove('hidden');
-            document.getElementById('step4').scrollIntoView({ behavior: 'smooth' });
-            
-            updateProgress(4);
-        }
-
-        function createPersonalizedPrompt() {
-            const formInstructions = {
-                "Sonnet": "Write a 14-line sonnet with an ABAB CDCD EFEF GG rhyme scheme. Build emotional intensity through the first 12 lines, then provide a powerful resolution in the final couplet.",
-                "Free Verse": "Write a free verse poem with no set rhyme scheme or meter. Let the natural rhythm of emotions and speech guide your line breaks and stanza structure.",
-                "Villanelle": "Write a 19-line villanelle with the rhyme scheme ABA ABA ABA ABA ABA ABAA. Choose two powerful refrains that capture the essence of the subject and repeat them according to the traditional pattern.",
-                "Haiku": "Write a traditional haiku with 3 lines following a 5-7-5 syllable pattern. Focus on a single, vivid moment or image.",
-                "Elegy": "Write an elegy that mourns what was lost while celebrating what remains. Use flowing verses to process grief and find meaning.",
-                "Narrative Poem": "Write a narrative poem that tells a complete story through verse. Include character, setting, and a clear sequence of events."
-            };
-
-            const topicGuidance = {
-                "love": "Focus on specific, sensory details that capture the unique aspects of this love. Avoid clichés and dig into what makes this love different from all others.",
-                "loss": "Honor both the pain of loss and the beauty of what was. Include specific memories that bring the lost person/thing to life for readers.",
-                "nature": "Use precise, vivid imagery that helps readers see, hear, and feel the natural world you're describing. Connect outer landscape to inner emotion.",
-                "family": "Capture the authentic voice and rhythm of your family. Include specific details that only someone from your family would know."
-            };
-
-            return `${formInstructions[selectedForm.name]}
-
-Topic: ${selectedTopic.charAt(0).toUpperCase() + selectedTopic.slice(1)}
-${topicGuidance[selectedTopic]}
-
-Incorporate these specific details and ideas:
-${userIdeas}
-
-Style guidelines:
-- Use concrete, specific imagery rather than abstract concepts
-- Include sensory details (what you see, hear, smell, touch, taste)
-- Show emotions through actions and images rather than just stating feelings
-- Make every word count - choose precise, evocative language
-- ${selectedForm.why}
-
-Create a poem that feels authentic and personal while following the ${selectedForm.name} structure.`;
-        }
-
-        function copyPrompt() {
-            const promptText = document.getElementById('generated-prompt').textContent;
-            navigator.clipboard.writeText(promptText).then(() => {
-                const copyBtn = document.querySelector('.copy-btn');
-                copyBtn.textContent = '✅ Copied!';
+        // Handle topic selection
+        function handleTopicSelection(event) {
+            try {
+                // Remove previous selections
+                topicCards.forEach(card => card.classList.remove('selected'));
+                
+                // Add selection to clicked card
+                event.currentTarget.classList.add('selected');
+                
+                // Store selected topic
+                selectedTopic = event.currentTarget.dataset.topic;
+                
+                console.log('Topic selected:', selectedTopic);
+                
+                // Move to next step after short delay
                 setTimeout(() => {
-                    copyBtn.textContent = '📋 Copy';
-                }, 2000);
-            });
-        }
-
-        function updateProgress(step) {
-            for (let i = 1; i <= 4; i++) {
-                const indicator = document.getElementById(`step${i}-indicator`);
-                if (i < step) {
-                    indicator.classList.add('completed');
-                    indicator.classList.remove('active');
-                } else if (i === step) {
-                    indicator.classList.add('active');
-                    indicator.classList.remove('completed');
-                } else {
-                    indicator.classList.remove('active', 'completed');
-                }
+                    showFormRecommendations();
+                    updateProgress(2);
+                }, 300);
+                
+            } catch (error) {
+                console.error('Error handling topic selection:', error);
+                showError('Failed to select topic. Please try again.');
             }
         }
 
+        // Show form recommendations based on selected topic
+        function showFormRecommendations() {
+            try {
+                if (!selectedTopic || !poetryForms[selectedTopic]) {
+                    throw new Error('Invalid topic selected');
+                }
+
+                const forms = poetryForms[selectedTopic];
+                formRecommendations.innerHTML = '';
+
+                forms.forEach((form, index) => {
+                    const formCard = document.createElement('div');
+                    formCard.className = 'card form-card';
+                    formCard.dataset.formIndex = index;
+                    
+                    formCard.innerHTML = `
+                        <h3 class="card-title">${form.name}</h3>
+                        <p class="card-description">${form.description}</p>
+                        <div class="card-structure"><strong>Structure:</strong> ${form.structure}</div>
+                        <div class="card-why"><strong>Why this works:</strong> ${form.why}</div>
+                    `;
+                    
+                    formCard.addEventListener('click', () => handleFormSelection(form, formCard));
+                    formRecommendations.appendChild(formCard);
+                });
+
+                showStep(2);
+                
+            } catch (error) {
+                console.error('Error showing form recommendations:', error);
+                showError('Failed to load poetry forms. Please try selecting a topic again.');
+            }
+        }
+
+        // Handle form selection
+        function handleFormSelection(form, cardElement) {
+            try {
+                // Remove previous selections
+                document.querySelectorAll('.form-card').forEach(card => 
+                    card.classList.remove('selected')
+                );
+                
+                // Add selection to clicked card
+                cardElement.classList.add('selected');
+                
+                // Store selected form
+                selectedForm = form;
+                
+                console.log('Form selected:', selectedForm.name);
+                
+                // Move to next step after short delay
+                setTimeout(() => {
+                    showStep(3);
+                    updateProgress(3);
+                }, 300);
+                
+            } catch (error) {
+                console.error('Error handling form selection:', error);
+                showError('Failed to select poetry form. Please try again.');
+            }
+        }
+
+        // Handle ideas input
+        function handleIdeasInput() {
+            try {
+                const text = userIdeasTextarea.value;
+                const length = text.length;
+                
+                // Update character counter
+                if (length < 50) {
+                    characterCounter.textContent = `${length}/50 characters minimum`;
+                    characterCounter.classList.add('error');
+                    generateButton.disabled = true;
+                } else {
+                    characterCounter.textContent = `${length}/1000 characters`;
+                    characterCounter.classList.remove('error');
+                    generateButton.disabled = false;
+                }
+                
+            } catch (error) {
+                console.error('Error handling ideas input:', error);
+            }
+        }
+
+        // Generate personalized prompt
+        function generatePrompt() {
+            try {
+                if (!selectedTopic || !selectedForm) {
+                    throw new Error('Missing topic or form selection');
+                }
+
+                const userIdeas = userIdeasTextarea.value.trim();
+                if (userIdeas.length < 50) {
+                    throw new Error('User ideas must be at least 50 characters');
+                }
+
+                const prompt = createPersonalizedPrompt(selectedTopic, selectedForm, userIdeas);
+                promptText.textContent = prompt;
+                
+                showStep(4);
+                updateProgress(4);
+                
+                console.log('Prompt generated successfully');
+                
+            } catch (error) {
+                console.error('Error generating prompt:', error);
+                showError('Failed to generate prompt. Please check your input and try again.');
+            }
+        }
+
+        // Create personalized prompt text
+        function createPersonalizedPrompt(topic, form, ideas) {
+            const topicGuidance = {
+                love: "Focus on the emotional complexity, vulnerability, and connection between people.",
+                loss: "Explore the process of grief, memory, and finding meaning in absence.",
+                nature: "Capture the beauty, power, and wisdom found in the natural world.",
+                family: "Examine relationships, shared history, and the bonds that shape us."
+            };
+
+            return `Write a ${form.name.toLowerCase()} about ${topic} that incorporates these personal elements: ${ideas}
+
+FORM REQUIREMENTS:
+${form.structure}
+
+THEMATIC GUIDANCE:
+${topicGuidance[topic]}
+
+CREATIVE DIRECTION:
+${form.why}
+
+SPECIFIC INSTRUCTIONS:
+- Use concrete, sensory imagery rather than abstract concepts
+- Let your personal experience guide the emotional truth of the piece
+- Pay attention to the music of language—how the words sound together
+- Trust the form to support and enhance your expression
+- Don't force rhymes or meter; let them emerge naturally from your meaning
+
+Remember: The form is your friend, not your constraint. Let it guide you toward discoveries you might not make in free-flowing prose.`;
+        }
+
+        // Copy prompt to clipboard
+        async function copyToClipboard() {
+            try {
+                const text = promptText.textContent;
+                await navigator.clipboard.writeText(text);
+                
+                copySuccess.style.display = 'block';
+                setTimeout(() => {
+                    copySuccess.style.display = 'none';
+                }, 3000);
+                
+                console.log('Prompt copied to clipboard');
+                
+            } catch (error) {
+                console.error('Error copying to clipboard:', error);
+                
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = promptText.textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                
+                try {
+                    document.execCommand('copy');
+                    copySuccess.style.display = 'block';
+                    setTimeout(() => {
+                        copySuccess.style.display = 'none';
+                    }, 3000);
+                } catch (fallbackError) {
+                    showError('Failed to copy to clipboard. Please select and copy the text manually.');
+                }
+                
+                document.body.removeChild(textArea);
+            }
+        }
+
+        // Start over functionality
         function startOver() {
-            // Reset all selections
-            selectedTopic = null;
-            selectedForm = null;
-            userIdeas = "";
+            try {
+                // Reset state
+                selectedTopic = null;
+                selectedForm = null;
+                currentStep = 1;
+                
+                // Reset UI
+                topicCards.forEach(card => card.classList.remove('selected'));
+                document.querySelectorAll('.form-card').forEach(card => 
+                    card.classList.remove('selected')
+                );
+                userIdeasTextarea.value = '';
+                characterCounter.textContent = '0/50 characters minimum';
+                characterCounter.classList.add('error');
+                generateButton.disabled = true;
+                promptText.textContent = '';
+                copySuccess.style.display = 'none';
+                
+                // Show first step
+                showStep(1);
+                updateProgress(1);
+                
+                console.log('Application reset successfully');
+                
+            } catch (error) {
+                console.error('Error starting over:', error);
+                showError('Failed to reset. Please refresh the page.');
+            }
+        }
+
+        // Show specific step
+        function showStep(stepNumber) {
+            try {
+                stepSections.forEach(section => section.classList.remove('active'));
+                const targetSection = document.getElementById(`step-${stepNumber}`);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    currentStep = stepNumber;
+                } else {
+                    throw new Error(`Step ${stepNumber} not found`);
+                }
+            } catch (error) {
+                console.error('Error showing step:', error);
+                showError(`Failed to navigate to step ${stepNumber}`);
+            }
+        }
+
+        // Update progress indicator
+        function updateProgress(activeStep) {
+            try {
+                progressSteps.forEach((step, index) => {
+                    const stepNumber = index + 1;
+                    step.classList.remove('active', 'completed');
+                    
+                    if (stepNumber === activeStep) {
+                        step.classList.add('active');
+                    } else if (stepNumber < activeStep) {
+                        step.classList.add('completed');
+                    }
+                });
+            } catch (error) {
+                console.error('Error updating progress:', error);
+            }
+        }
+
+        // Show error message
+        function showError(message) {
+            const existingError = document.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = message;
             
-            // Clear UI
-            document.querySelectorAll('.topic-card, .form-card').forEach(card => {
-                card.classList.remove('selected');
-            });
-            document.getElementById('ideas-input').value = '';
-            document.getElementById('ideas-count').textContent = '0';
+            const container = document.querySelector('.container');
+            container.insertBefore(errorDiv, container.firstChild);
             
-            // Hide steps
-            document.querySelectorAll('#step2, #step3, #step4').forEach(step => {
-                step.classList.add('hidden');
-            });
-            
-            // Reset progress
-            updateProgress(1);
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                errorDiv.remove();
+            }, 5000);
         }
     </script>
 </body>
